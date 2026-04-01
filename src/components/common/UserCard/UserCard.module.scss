@@ -19,7 +19,6 @@
   }
 }
 
-// Стили для архивной карточки
 .archivedCard {
   opacity: 0.85;
 
@@ -29,7 +28,6 @@
   }
 }
 
-// Аватар
 .avatar {
   flex-shrink: 0;
   width: 112px;
@@ -44,7 +42,6 @@
   }
 }
 
-// Аватар в архивной карточке
 .archivedCard .avatar img {
   filter: grayscale(100%);
   opacity: 0.7;
@@ -55,7 +52,6 @@
   }
 }
 
-// Информационный блок
 .info {
   flex: 1;
   display: flex;
@@ -66,7 +62,6 @@
   width: 100%;
 }
 
-// Блок username и company
 .usernameCompany {
   display: flex;
   flex-direction: column;
@@ -75,7 +70,6 @@
   min-width: 0;
 }
 
-// Обертка для username и кнопки
 .usernameWrapper {
   display: flex;
   align-items: center;
@@ -86,7 +80,6 @@
   position: relative;
 }
 
-// Username
 .username {
   @include font(600, 20px, 27px, $accent);
   flex: 1;
@@ -99,37 +92,6 @@
   color: $color-02;
 }
 
-// Кнопка меню (три точки)
-.menuBtn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  transition: background 0.2s;
-  flex-shrink: 0;
-  position: relative;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.05);
-  }
-
-  svg {
-    width: 24px;
-    height: 24px;
-    transition: fill 0.2s;
-    display: block;
-  }
-}
-
-.archivedCard .menuBtn svg path {
-  fill: $color-03;
-}
-
-// Название компании
 .companyName {
   @include font(500, 16px, 22px, $color-02);
   @include text-truncate;
@@ -142,7 +104,6 @@
   color: $color-03;
 }
 
-// Город
 .city {
   @include font(500, 14px, 19px, $color-03);
   @include text-truncate;
@@ -155,7 +116,6 @@
   color: $color-04;
 }
 
-// ========== ПЛАНШЕТЫ (601px - 768px) ==========
 @include responsive(tablet) {
   .userCard {
     padding: 20px;
@@ -180,11 +140,6 @@
   .city {
     font-size: 13px;
     line-height: 18px;
-  }
-
-  .menuBtn svg {
-    width: 20px;
-    height: 20px;
   }
 }
 
@@ -234,11 +189,6 @@
     max-width: 94px;
   }
 
-  .menuBtn svg {
-    width: 24px;
-    height: 24px;
-  }
-
   .companyName {
     font-size: 14px;
     line-height: 19px;
@@ -283,11 +233,6 @@
     font-size: 16px;
     line-height: 22px;
     max-width: 84px;
-  }
-
-  .menuBtn svg {
-    width: 20px;
-    height: 20px;
   }
 
   .companyName {
