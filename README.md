@@ -4,7 +4,7 @@
 
 ## 🚀 Демо
 
-[Ссылка на деплой]
+[https://arvik1982.github.io/my-users-list/]
 
 ---
 
