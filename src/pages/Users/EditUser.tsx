@@ -133,7 +133,7 @@ const EditUser = () => {
     },
 
     // откатываем изменения
-    onError: (error, formData, context) => {
+    onError: (_, __, context) => {
       if (context?.oldUser) {
         queryClient.setQueryData(
           queryKeys.users.detail(userId),
