@@ -1,0 +1,270 @@
+@use '@/styles/colors.scss' as *;
+@use '@/styles/mixins.scss' as *;
+@use 'sass:color';
+
+.editUser {
+  width: 100%;
+  min-height: 100vh;
+  background: $color-05;
+  @include responsive-padding;
+}
+
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  padding: 6px 4px 6px 8px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateX(-4px);
+  }
+
+  @media (max-width: 600px) {
+    margin-bottom: 16px;
+    padding: 6px 4px 6px 0;
+  }
+}
+
+.backIconDesktop {
+  width: 28px;
+  height: 28px;
+  display: block;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.backIconMobile {
+  width: 24px;
+  height: 24px;
+  display: none;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+
+.backText {
+  @include font(600, 16px, 22px, $color-02);
+
+  @media (max-width: 600px) {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 40px;
+  width: 100%;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.sidebar {
+  width: 360px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 40px;
+  @include card;
+  flex: 1;
+
+  @media (max-width: 600px) {
+    padding: 28px;
+    gap: 24px;
+  }
+}
+
+.avatarWrapper {
+  width: 100%;
+  @include flex-center;
+}
+
+.avatarImage {
+  width: 280px;
+  height: 485px;
+  border-radius: 8px;
+  object-fit: cover;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 287 / 187;
+  }
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  flex: 1;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.categoryName {
+  @include font(500, 14px, 19px, $color-01);
+}
+
+.categoryNameMuted {
+  @include font(500, 14px, 19px, $color-03);
+}
+
+.categoryLine {
+  @include line;
+}
+
+.profileData {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  @include card;
+  min-height: 0;
+
+  @media (min-width: 901px) {
+    padding: 40px;
+    gap: 24px;
+  }
+
+  @media (max-width: 900px) and (min-width: 601px) {
+    padding: 32px;
+    gap: 24px;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 28px;
+    gap: 20px;
+  }
+}
+
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.profileTitle {
+  @include font(600, 24px, 33px, $color-01);
+  margin: 0;
+}
+
+.profileLine {
+  @include line;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 420px;
+  flex: 1;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: auto;
+
+  @media (max-width: 600px) {
+    justify-content: stretch;
+  }
+}
+
+.saveButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 42px;
+  gap: 12px;
+  background: $color-01;
+  border-radius: 50px;
+  @include button-base;
+  @include font(600, 16px, 22px, $color-06);
+
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 12px 42px;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  &:hover:not(:disabled) {
+    background: color.scale($color-01, $lightness: 20%);
+  }
+}
+
+.error {
+  text-align: center;
+  padding: 60px;
+
+  p {
+    @include font(500, 18px, 24px, $color-01);
+    margin-bottom: 16px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background: $accent;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    @include font(500, 14px, 19px, white);
+
+    &:hover {
+      background: color.scale($accent, $lightness: -10%);
+    }
+  }
+}

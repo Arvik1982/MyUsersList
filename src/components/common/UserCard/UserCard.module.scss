@@ -1,0 +1,247 @@
+@use '@/styles/colors.scss' as *;
+@use '@/styles/mixins.scss' as *;
+@use 'sass:color';
+
+.userCard {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  gap: 20px;
+  width: 100%;
+  @include card;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  flex-direction: row;
+
+  &:hover {
+    @include card-hover;
+  }
+}
+
+.archivedCard {
+  opacity: 0.85;
+
+  &:hover {
+    opacity: 1;
+    @include card-hover;
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 112px;
+  height: 120px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+  }
+}
+
+.archivedCard .avatar img {
+  filter: grayscale(100%);
+  opacity: 0.7;
+
+  &:hover {
+    filter: grayscale(70%);
+    opacity: 0.85;
+  }
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  width: 100%;
+}
+
+.usernameCompany {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+}
+
+.usernameWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+}
+
+.username {
+  @include font(600, 20px, 27px, $accent);
+  flex: 1;
+  min-width: 0;
+  @include text-truncate;
+  transition: color 0.2s;
+}
+
+.archivedUsername {
+  color: $color-02;
+}
+
+.companyName {
+  @include font(500, 16px, 22px, $color-02);
+  @include text-truncate;
+  transition: color 0.2s;
+  width: 100%;
+  min-width: 0;
+}
+
+.archivedCompanyName {
+  color: $color-03;
+}
+
+.city {
+  @include font(500, 14px, 19px, $color-03);
+  @include text-truncate;
+  transition: color 0.2s;
+  width: 100%;
+  min-width: 0;
+}
+
+.archivedCity {
+  color: $color-04;
+}
+
+@include responsive(tablet) {
+  .userCard {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 104px;
+  }
+
+  .username {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .companyName {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .city {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+
+@include responsive(mobile) {
+  .userCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    gap: 16px;
+    width: 162px;
+    height: 242px;
+    max-width: 162px;
+    margin: 0 auto;
+  }
+
+  .avatar {
+    width: 130px;
+    height: 120px;
+  }
+
+  .info {
+    width: 130px;
+    max-width: 130px;
+    gap: 12px;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .usernameCompany {
+    width: 100%;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .usernameWrapper {
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .username {
+    font-size: 18px;
+    line-height: 25px;
+    white-space: nowrap;
+    text-align: left;
+    max-width: 94px;
+  }
+
+  .companyName {
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .city {
+    font-size: 10px;
+    line-height: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: left;
+  }
+}
+
+@include responsive(small-mobile) {
+  .userCard {
+    width: 148px;
+    height: 226px;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 110px;
+  }
+
+  .info {
+    width: 120px;
+    max-width: 120px;
+    gap: 10px;
+  }
+
+  .usernameWrapper {
+    gap: 8px;
+  }
+
+  .username {
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 84px;
+  }
+
+  .companyName {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .city {
+    font-size: 9px;
+    line-height: 13px;
+  }
+}

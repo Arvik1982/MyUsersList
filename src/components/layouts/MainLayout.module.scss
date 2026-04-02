@@ -1,0 +1,40 @@
+@use '@/styles/colors.scss' as *;
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  background: $color-06;
+  border-bottom: 1px solid $color-04;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  background: $color-05;
+}
+
+.footer {
+  width: 100%;
+  background: $color-06;
+  border-top: 1px solid $color-04;
+  padding: 24px 0;
+
+  .container {
+    text-align: center;
+  }
+
+  p {
+    color: $color-03;
+    font-size: 14px;
+    margin: 0;
+  }
+}
