@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# At-Work
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение для управления пользователями с возможностью просмотра, редактирования, архивации и скрытия карточек.
 
-Currently, two official plugins are available:
+## 🚀 Демо
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[Ссылка на деплой]
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Технологии
 
-## Expanding the ESLint configuration
+- React 18
+- TypeScript
+- React Router v7
+- Zustand
+- TanStack Query
+- React Hook Form + Zod
+- SCSS Modules
+- Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🎯 Функционал
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Главная страница
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Загрузка первых 6 пользователей из API
+- Отображение карточек с Username, City, Company name, аватаркой
+- Действия с карточкой:
+  - ✏️ Редактировать → переход на страницу редактирования
+  - 📦 Архивировать → перемещение в архив
+  - 👁️ Скрыть → удаление из списка
+  - 🔄 Активировать → возврат из архива
+- Состояние сохраняется после перезагрузки (localStorage)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Страница редактирования
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Форма с полями: Name, Username, Email, City, Phone, Company Name
+- Валидация через Zod
+- При сохранении → модальное окно "Изменения сохранены!"
+- Модальное окно закрывается:
+  - по крестику
+  - по клику на подложку
+  - автоматически через 4 секунды
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🚀 Запуск проекта
+
+```bash
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
+npm run dev
+
+# Сборка для продакшена
+npm run build
+
 ```
